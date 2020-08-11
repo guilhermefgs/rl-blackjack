@@ -2,7 +2,7 @@
 
 ## The environment
 
-This project are using 'Blackjack-v0' env from [OpenAI Gym](gym.openai.com).
+This project is using Blackjack-v0 env from [OpenAI Gym](gym.openai.com).
 
 ### Actions
 There are two actions in the space action of this environment, 0 (stand) or 1 (hit). 
