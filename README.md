@@ -12,3 +12,8 @@ The state or observation of the env is a tuple
 ```python
 >>> (sum_hand(self.player), self.dealer[0], usable_ace(self.player))
 ```
+
+* **sum_hand(player)**: the agent's current sum hand
+* **dealer[0]**: value of dealers first card, the second card is not shown
+* **usable_ace(player)**: if agent is using ace 
+
