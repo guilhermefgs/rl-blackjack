@@ -17,3 +17,6 @@ class LogicAgent:
             return 0
         return 1
 
+    def feedback(self, state, action, reward, next_state):
+        pass
+
