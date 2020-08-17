@@ -1,24 +1,19 @@
 import numpy as np
+from collections import defaultdict 
 
 class QAgent:
     """Q-Learning Agent
     """
     # class attributes
-    decay = 0.01
+    decay = 0.99
 
     def __init__(self):
-        self.q = {}
+        self.q = defaultdict(lambda: [0,0])
         self.epsilon = 0.7
-        self.alpha = 0.1
+        self.alpha = 0.01
         self.gamma = 0.9
 
     def feedback(self, state, action, reward, next_state):
-        # handle new state
-        if state not in self.q.keys():
-            self.q[state] = [0,0]
-        if next_state not in self.q.keys():
-            self.q[next_state] = [0,0]
-        
         # Bellman equation
         self.q[state][action] += self.alpha * (reward + self.gamma * np.max(self.q[next_state]) - self.q[state][action])
 
@@ -27,4 +22,6 @@ class QAgent:
             action = np.random.choice([0,1])
         else:
             action = np.argmax(self.q[state])
+
         self.epsilon *= QAgent.decay
+        return action
